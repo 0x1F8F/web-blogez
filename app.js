@@ -1,54 +1,28 @@
-const http = require('http')
-const fs = require('fs')
+const express = require("express")
+// const pug = require("pug")
 
+const app = express()
+const PORT = 8080
 
-// read file user/*.json
-function Rfile(name) {
-    fs.stat(`users/{name}.json`, (err,stat) => {
-        if (err === null) {
-           return fs.readFile(`users/{name}.json`)
-           //return json formate
+app.use(express.urlencoded()) // req.body would give data in json formate
+app.set('view engine','ejs')
 
-        } else if (err.code === 'ENOENT') {
-            console.log('user not found')
-            return "user not found"
-            // user not found : redirect btn to home or login pg
-
-        } else {
-            console.log(err.message)
-            // something happened: run as adminstator it could be fix
-        }
+app.get('/',(req,res) => {
+    res.status(200,"ok")
+    res.render('home',{
+        PORT:PORT
     })
-}
-
-// write user data as json document
-function Wfile(name, email, passwd) {
-    fs.stat(`users/{name}.json`, (err, stat) => {
-        if (err === null) {
-            console.log('user already found')
-        } else if (err.code === 'ENOENT') {
-            fs.writeFile(`users/{name}.json`,() => {
-            // save in these formate
-            })
-        } else {
-            console.log(err.message)
-        }
-    }
-)}
-
-
-//initialization of http server
-const server = http.createServer((req,res) => {
-    if (req.url==='/home') {
-        res.write(fs.readFile('src/home.html'))
-        res.end()
-    } else {
-        res.write(Rfile('src/host/404.html'))
-    }
 })
 
-
-//server host at port:80 host:127.0.0.1
-server.listen(80,"127.0.0.1", () => {
-    console.log('Server at http://localhost:80/home')
+app.get("/login", (req,res) => {
+    res.render('login')
 })
+
+app.get("/signup", (req,res) => {
+    res.render('signup')
+})
+
+app.listen(PORT,() => {
+    console.log(`server starting at ${PORT}`)
+})
+
