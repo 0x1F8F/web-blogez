@@ -7,6 +7,18 @@
     <title>Home</title>
 </head>
 <body>
-    <h1>Serever running at <%= PORT %> </h1>
+    <h1>Serever running at <%= PORT %> </h1><br>
+    <p><% if (login) { %>
+        <%= name %>
+        <% } else { %>
+            <a href="/login">
+                <button>Login</button>
+            </a>
+            <% } %>
+      
+    </p>
 </body>
 </html>
+
+
+
