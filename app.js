@@ -7,7 +7,8 @@ const PORT = 8080
 app.use(express.urlencoded()) // req.body would give data in json formate
 app.set('view engine','ejs')
 
-app.get('/',(req,res) => {
+
+app.get('/home',(req,res) => {
     res.status(200,"ok")
     res.render('home',{
         PORT:PORT
@@ -17,9 +18,16 @@ app.get('/',(req,res) => {
 app.get("/login", (req,res) => {
     res.render('login')
 })
+app.post("/login", (req,res) => {
+    //post request
+})
 
 app.get("/signup", (req,res) => {
     res.render('signup')
+})
+
+app.post("/signup", (req,res) => {
+    // post request
 })
 
 app.listen(PORT,() => {
