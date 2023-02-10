@@ -8,9 +8,7 @@
 </head>
 <body>
     <h1>Serever running at <%= PORT %> </h1><br>
-    <p><% if (login) { %>
-        <%= name %>
-        <% } else { %>
+    <p><% if (!login) { %>
             <a href="/login">
                 <button>Login</button>
             </a>
