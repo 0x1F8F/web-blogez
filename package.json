@@ -1,26 +1,26 @@
 {
-  "name": "node-blog",
+  "name": "blogez",
   "version": "1.0.0",
   "description": "A fully fledged blog application",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon index.js"
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ishandeveloper/Custom-Blog.js.git"
+    "url": ""
   },
   "keywords": [
     "blog",
     "node",
     "blog-application"
   ],
-  "author": "ishandeveloper",
+  "author": "Adless-i",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/ishandeveloper/Custom-Blog.js/issues"
+    "url": ""
   },
-  "homepage": "https://github.com/ishandeveloper/Custom-Blog.js#readme",
+  "homepage": "",
   "dependencies": {
     "body-parser": "^1.19.0",
     "cookie-parser": "^1.4.6",
