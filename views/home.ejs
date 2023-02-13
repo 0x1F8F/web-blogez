@@ -1,22 +1,47 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
-</head>
-<body>
-    <h1>Serever running at <%= PORT %> </h1><br>
-    <p><% if (!login) { %>
-            <a href="/login">
-                <button>Login</button>
-            </a>
-            <% } %>
-      
-    </p>
-</body>
-</html>
 
+<%- include('partials/header'); -%>
+<div class="blog-container">
+  <div class="col-md-12">
 
+    <div class="jumbotron  jumbotron-fluid post-container latest-posts-container">
+      <div class="container">
+        <h1 class="display-4 post-title latest-posts-hero">
+          Latest Posts
+          <hr>
+        </h1>
+      </div>
+    </div>
 
+    <% for(var i=0;i<posts.length;i++){ %>
+    <div class="jumbotron  jumbotron-fluid post-container">
+      <div class="container">
+        <h1 class="display-4 post-title">
+          <%= posts[i].title %>
+        </h1>
+        <p class="lead post-content">
+          
+          <%= posts[i].content.substring(0,300) %>...
+        </p>
+        <h6 class="display-4 post-title latest-posts-hero">
+          <%= posts[i].name %>
+        </h6>
+        <div class="row post-details">
+          <label class="post-published">Published On <span class="date">
+              <%= posts[i].time %>
+            </span></label>
+          <a href="/posts/<%= posts[i].title %>"><button class="read-more">
+            Read More
+          </button></a>
+        </div>
+      </div>
+    </div>
+
+    <% } %>
+
+  </div>
+  <div class="legal">
+    <a href="/about">Ab<span style="color:red">o</span>ut</a>
+</div>
+</div>
+
+<%- include('partials/footer'); -%>

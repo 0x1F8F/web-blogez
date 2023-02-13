@@ -4,39 +4,72 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <link rel="stylesheet" href="../public/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../public/css/animate.min.css">
+    <link rel="stylesheet" href="../public/css/style.css">
+    <link rel="stylesheet" href="../public/css/login.css">
+    <title>Login | Blog</title>
 </head>
 <body>
-    <form action="/login" method="post">
-        <div id="panel">
-            <input id="name" type="text" placeholder="User name or Email ID" name="name"><br>
-            <input id="passwd" type="password" placeholder="Password" name="passwd"><br>
-            <button type="submit" value="submit">Login</button>
-        </div>
-    </form>
+    <div id="heading">
+        <h1 id="r">Login</h1><h1 class="sep">|</h1>
+        <h6 id="l"><a href="/signup">Dont have <br> an account?</a></h6>
+    </div>
+    <div id="details">
+        <form action="/login" method="post">
+            <p id="msg"><%= errmsg %> </p>
+            <input type="text" name="name" placeholder=" Name"><br>
+            <input type="password" name="passwd" placeholder=" Password"><br>
+            <button type="submit" id="btn" class="read-more publish-btn" >Login</button>
+        </form>
+            
+    </div>
 </body>
+</html>
 <style>
-
-form {
- padding: 2rem;
- background-color:#00ff00ba;
- border-radius: 5px;
- justify-items: center;
+    #msg {
+        margin: 0%;
+        margin-top: 2%;
+        text-align: center;
+        color: red;
+    }
+    
+    a {
+    color: black;
+    animation-name: reds;
+    animation-direction: reverse;
+    animation-duration: 2s;
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: none;
+    animation-name: reds;
+    animation-direction:normal;
+    animation-duration: 2s;
+    color: red;
 }
 
-input {
-  height:20px;
-  width:20rem;
-  background-color: green;
-  border:0px;
-  margin: 2px;
-  border-radius:8px;
-}
-
-::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
-  color: lightgreen;
-  opacity: .5; /* Firefox */
-}
+    h1 {
+        margin-top: 1%;
+    }
+    h6 {
+        margin-top: 1.4%;
+    }
+    #heading {
+        display: flex;
+        justify-content: center;
+    }
+    #details {
+        display: grid;
+        justify-items: center;
+        align-items: center;
+    }
+    input {
+        margin-top: 5%;
+        margin-bottom: 5%;
+    }
+    .sep{
+        color: black;
+    }
 
 </style>
-</html>

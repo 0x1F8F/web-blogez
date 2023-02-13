@@ -1,0 +1,110 @@
+@keyframes inputani {
+    from {
+        border-color: black;
+        border-radius: 0%;
+        caret-color: black;
+    } to {
+        border-color: red;
+        border-radius: 0%;
+        caret-color: red;
+    } 
+}
+@keyframes inputrev {
+    from {
+        border-color: red;
+        border-radius: 0%;
+        caret-color: red;
+    } to {
+        border-color: black;
+        border-radius: 0%;
+        caret-color: black;
+    } 
+}
+
+input {
+    border-color: black;
+    border-radius: 0%;
+    margin: 2px;
+    box-sizing: border-box;
+    border: 3px solid;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    animation-name: inputrev;
+    animation-duration: 2s;
+    animation-direction: unset;
+    outline: none;
+}
+input:hover {
+    caret-color: red;
+    border: 3px solid red;
+    animation-name: inputani;
+    animation-duration: 2s;
+    animation-direction: unset;
+    outline: none;
+}
+
+input:focus {
+    caret-color: red;
+    border: 3px solid red;
+    animation-name: inputani;
+    animation-duration: 2s;
+    animation-direction: unset;
+    outline: none;
+}
+button {
+    border-color: black;
+    border-radius: 0%;
+    margin: 2px;
+    box-sizing: border-box;
+    border: 3px solid;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    outline: none;
+    animation-name: inputrev;
+    animation-duration: 2s;
+    animation-direction: unset;
+}
+button:checked {
+    border-color: red;
+    border-radius: 0%;
+    margin: 2px;
+    box-sizing: border-box;
+    border: 3px solid;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    animation-name: inputani;
+    animation-duration: 2s;
+    animation-direction: unset;
+}
+
+
+h6 {
+    margin-top: 1%;
+    user-select: none;
+}
+h1 {
+    margin-top: 1%;
+    user-select: none;
+}
+
+@keyframes reds {
+    from {
+        color: black;
+    } to {
+        color: red;
+    }
+}
+a {
+    color: black;
+    animation-name: reds;
+    animation-direction: reverse;
+    animation-duration: 2s;
+    text-decoration: none;
+}
+a:hover {
+    animation-name: reds;
+    animation-duration: 2s;
+    color: red;
+}
+
+

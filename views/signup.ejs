@@ -4,20 +4,87 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>sign up</title>
+    <link rel="stylesheet" href="../public/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../public/css/animate.min.css">
+    <link rel="stylesheet" href="../public/css/style.css">
+    <link rel="stylesheet" href="../public/css/login.css">
+    <title>Sign up | Blog</title>
 </head>
 <body>
-    <form action="/signup" method="post">
-        <div id="panel">
-            <input type="text" placeholder="Name" name="name"><br>
-            <input type="email" placeholder="Email" name="email"><br>
-            <input type="password" placeholder="Password" name="passwd"><br>
-            <input type="password" placeholder="Re-type Password" id="passwd2"><br>
-            <button type="submit">Sign up</button>
-        </div>
-    </form>
+    <div id="heading">
+        <h1 id="r">Sign up</h1> <h1 class="sep">|</h1>
+        <a href="/login" > <h6 id="l">Already have <br> an account?</h6> </a>
+    </div>
+    <div id="details">
+        <form id="entery" action="/signup" method="post">
+            <p id="msg"><%= errmsg %> </p><br>
+            <input type="text" name="name" placeholder="  Name"><br>
+            <input type="text" name="email" placeholder="  Email"><br>
+            <input type="password" id="p1" name="passwd" placeholder="  Password"><br>
+            <input type="password" id="p2" placeholder="  Re-type Password"><br>
+        </form>
+        <button  id="btn" class="read-more submit-btn">Sign up</button>
+    </div>
 </body>
-<style>
-    
-</style>
 </html>
+<script>
+    document.getElementById('btn').onclick = () => {
+        console.log('clicked');
+        if (document.getElementById('p1').value === document.getElementById('p2').value ) {
+            document.getElementById('msg').innerHTML=''
+            console.log('equal');
+            document.getElementById("entery").submit()
+        }
+        else {
+            document.getElementById('msg').innerHTML='Password incorrect'
+            console.log('not equal');
+        }
+    }
+</script>
+<style>
+    #msg {
+        margin: 0%;
+        margin-top: 2%;
+        text-align: center;
+        color: red;
+    }
+    a {
+        color: black;
+        animation-name: reds;
+        animation-direction: reverse;
+        animation-duration: 2s;
+        text-decoration: none;
+        margin-top: 1.6%;
+    }
+    a:hover {
+        text-decoration: none;
+        animation-name: reds;
+        animation-direction:normal;
+        animation-duration: 2s;
+        color: red;
+    }
+
+    h1 {
+        margin-top: 1%;
+    }
+    h6 {
+        margin-top: 1.4%;
+    }
+    #heading {
+        display: flex;
+        justify-content: center;
+    }
+    #details {
+        display: grid;
+        justify-items: center;
+        align-items: center;
+    }
+    input {
+        margin-top: 5%;
+        margin-bottom: 5%;
+    }
+    .sep{
+        color: black;
+    }
+
+</style>

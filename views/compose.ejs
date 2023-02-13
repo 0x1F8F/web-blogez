@@ -1,0 +1,53 @@
+<%- include('partials/header'); -%>
+
+<div class="blog-container compose-container">
+    <form id='frm' action="/compose" method="post">
+        <div class="col-md-12">
+            <h1 class="post-title compose-hero">
+                Write Something ..
+            </h1>
+            <input id="hardcr" type="hidden" name="user" value="user()">
+            <input type="text" name="title" class="compose-input title-input" placeholder="Your post title"/>
+            <textarea placeholder="Your post content goes here...." name="post" type="text"
+                class="compose-input"></textarea>
+        </div>
+        <div class="col-md-12">
+            <button type="submit" class="read-more publish-btn">
+                Publish
+            </button>
+        </div>
+    </form>
+</div>
+<script>
+function user() {
+    var cookies = decodeURIComponent(document.cookie).split(';')
+    console.log(cookies.length)
+    var user = ''
+    var login = false
+    for (var i=0;i<cookies.length;i++) {
+        var vari,value =cookies[i].split('=')
+        vari = value[0]
+        value = value[1]
+        console.log(vari +'    cookied   '+ value)
+        if (vari===" login") {
+            if(value==='1'){
+                login=true
+            }
+        }
+        if (vari===' userName') {
+            user = value
+        }
+    }
+    return user
+}
+document.getElementById('hardcr').value = user()
+</script>
+<%- include('partials/footer'); -%>
+    
+   <!-- $("#frm").submit( () => {
+        $('<input />').attr('type','hidden')
+            .attr('name','userName')
+            .attr('value',userName)
+            .appendTo('#frm')
+        return true
+    })-->

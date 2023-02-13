@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../public/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../public/css/animate.min.css">
+    <link rel="stylesheet" href="../public/css/style.css">
+
+    <title>Blog | blogz</title>
+</head>
+<body>
+    <nav class="nav-desk">
+        <center>
+            <div class="nav-logo">
+                <a class="nav-title" href="/">
+                    Blog | <span>blogzr</span>
+                    <!-- <span>by blogz</span> -->
+                </a>
+            </div>
+            <div class="nav-items">
+                <ul>
+                    <li><span id="logined"><a href="/login" >Login</a></span></li>
+                    <li id="poster"></li>
+                    <li id="outer"></li>
+                </ul>
+            </div>
+
+        </center>
+    </nav>
+</body>
+<% if (jquery[0]) { %>
+    <script>
+    </script>
+<% } %>
+<script>
+    var cookies = decodeURIComponent(document.cookie).split(';')
+    console.log(cookies.length)
+    var user = ''
+    var login = false
+    for (var i=0;i<cookies.length;i++) {
+        var vari,value =cookies[i].split('=')
+        vari = value[0]
+        value = value[1]
+        console.log(vari +'    cookied   '+ value)
+        if (vari===" login") {
+            if(value==='1'){
+                login=true
+            }
+        }
+        if (vari===' userName') {
+            user = value
+        }
+    }
+    if (login) {
+        console.log(login + " " + user)
+        document.getElementById('logined').innerHTML = user
+        document.getElementById('poster').innerHTML = '<span><a href="/compose">Post</a></span>'
+        document.getElementById('outer').innerHTML = '<span><button id="outbtn" class="read-more logout-btn">Logout</button></span>'
+        document.getElementById("outbtn").onclick = () => {
+            document.cookie = 'login=0;SameSite=None;'
+            document.cookie = 'userName=none;SameSite=None;'
+            location.reload()
+        }
+    }
+
+</script>
